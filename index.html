@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>20 Claude Prompts That Do Real Work — @learn_withclaude</title>
+<meta name="description" content="20 copy-paste Claude prompts for writing, research, content, work and creativity. Free from @learn_withclaude."/>
+<meta property="og:title" content="20 Claude Prompts That Do Real Work"/>
+<meta property="og:description" content="Free prompt library from @learn_withclaude. 20 prompts across 5 categories. Copy, paste, go."/>
+<meta property="og:type" content="website"/>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#F2EFE8;
+  --dark:#1E1A15;
+  --accent:#D97757;
+  --accent-light:#F5E8E2;
+  --text:#212121;
+  --text2:#21212175;
+  --text3:#21212145;
+  --card:#FDFCF9;
+  --card-border:#21212112;
+  --card-border2:#21212120;
+  --code-bg:#F0EDE6;
+  --tag-bg:#F5F2EB;
+}
+
+html{scroll-behavior:smooth;}
+
+body{
+  font-family:'Figtree',system-ui,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  min-height:100vh;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ── HERO ── */
+.hero{
+  background:var(--dark);
+  padding:64px 40px 56px;
+  position:relative;overflow:hidden;
+}
+.dot-grid{
+  position:absolute;inset:0;
+  background-image:radial-gradient(circle,#ffffff09 1px,transparent 1px);
+  background-size:26px 26px;
+  pointer-events:none;
+}
+.hero-inner{max-width:760px;margin:0 auto;position:relative;z-index:1;}
+
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  margin-bottom:28px;
+}
+.eyebrow-pill{
+  background:var(--accent);border-radius:9999px;
+  padding:5px 16px;font-size:11px;font-weight:800;
+  color:#fff;letter-spacing:.12em;text-transform:uppercase;
+}
+.eyebrow-level{
+  font-size:11px;font-weight:600;color:#F2EFE860;
+  letter-spacing:.1em;text-transform:uppercase;
+}
+
+.hero h1{
+  font-size:clamp(36px,6vw,64px);font-weight:800;
+  color:#F2EFE8;line-height:1.0;letter-spacing:-.025em;
+  margin-bottom:20px;
+}
+.hero h1 em{color:var(--accent);font-style:normal;}
+
+.hero-sub{
+  font-size:16px;color:#F2EFE888;line-height:1.7;
+  max-width:540px;margin-bottom:36px;
+}
+
+.hero-stats{
+  display:flex;flex-wrap:wrap;gap:0;
+  border-top:1px solid #ffffff10;padding-top:28px;
+}
+.stat{
+  padding:0 28px;border-right:1px solid #ffffff10;
+}
+.stat:first-child{padding-left:0;}
+.stat:last-child{border-right:none;}
+.stat-n{font-size:26px;font-weight:800;color:#F2EFE8;line-height:1;margin-bottom:4px;}
+.stat-n span{color:var(--accent);}
+.stat-l{font-size:12px;color:#F2EFE855;letter-spacing:.04em;}
+
+/* ── NAV PILLS ── */
+.nav-wrap{
+  background:var(--dark);
+  border-bottom:1px solid #ffffff08;
+  position:sticky;top:0;z-index:100;
+}
+.nav-inner{
+  max-width:760px;margin:0 auto;
+  padding:12px 40px;
+  display:flex;gap:8px;overflow-x:auto;
+  scrollbar-width:none;
+}
+.nav-inner::-webkit-scrollbar{display:none;}
+.nav-pill{
+  background:transparent;border:1px solid #ffffff15;
+  border-radius:9999px;padding:6px 16px;
+  font-size:12px;font-weight:600;color:#F2EFE870;
+  cursor:pointer;white-space:nowrap;transition:all .15s;
+  font-family:'Figtree',sans-serif;text-decoration:none;
+}
+.nav-pill:hover,.nav-pill.active{
+  background:var(--accent);border-color:var(--accent);color:#fff;
+}
+
+/* ── BODY ── */
+.body{max-width:760px;margin:0 auto;padding:52px 40px 100px;}
+
+/* section */
+.category{margin-bottom:60px;}
+.cat-header{
+  display:flex;align-items:center;gap:14px;
+  margin-bottom:20px;padding-bottom:16px;
+  border-bottom:1px solid var(--card-border2);
+}
+.cat-icon{
+  width:40px;height:40px;border-radius:12px;
+  background:var(--dark);
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;flex-shrink:0;
+}
+.cat-title{font-size:20px;font-weight:800;color:var(--text);letter-spacing:-.01em;}
+.cat-sub{font-size:13px;color:var(--text2);margin-top:2px;}
+.cat-count{
+  margin-left:auto;font-size:12px;font-weight:700;
+  color:var(--accent);background:var(--accent-light);
+  padding:4px 12px;border-radius:9999px;letter-spacing:.04em;
+}
+
+/* prompt card */
+.prompt-card{
+  background:var(--card);
+  border:1px solid var(--card-border);
+  border-radius:14px;overflow:hidden;
+  margin-bottom:12px;
+  transition:border-color .15s,box-shadow .15s;
+}
+.prompt-card:hover{
+  border-color:var(--card-border2);
+  box-shadow:0 4px 20px #00000008;
+}
+
+.card-top{
+  padding:18px 22px 16px;
+  display:flex;gap:14px;align-items:flex-start;
+  cursor:pointer;
+  user-select:none;
+}
+.card-top:hover .card-arrow{opacity:1;}
+
+.num-badge{
+  width:32px;height:32px;border-radius:9px;flex-shrink:0;
+  background:var(--tag-bg);border:1px solid var(--card-border2);
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;font-weight:800;color:var(--accent);
+  margin-top:1px;
+}
+.card-info{flex:1;}
+.card-title{font-size:15px;font-weight:700;line-height:1.3;color:var(--text);margin-bottom:4px;}
+.card-desc{font-size:13px;color:var(--text2);line-height:1.5;}
+.card-arrow{
+  font-size:18px;color:var(--text3);flex-shrink:0;
+  transition:transform .2s,opacity .15s;opacity:.6;margin-top:2px;
+}
+.card-arrow.open{transform:rotate(180deg);opacity:1;}
+
+.card-body{
+  display:none;
+  border-top:1px solid var(--card-border);
+  padding:20px 22px;
+  background:var(--code-bg);
+}
+.card-body.open{display:block;}
+
+.prompt-text{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12.5px;line-height:1.85;
+  color:var(--text);
+  white-space:pre-wrap;word-break:break-word;
+}
+.v{color:var(--accent);font-weight:500;}
+
+.card-actions{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-top:18px;padding-top:14px;
+  border-top:1px solid var(--card-border2);
+  flex-wrap:wrap;gap:10px;
+}
+.tags{display:flex;gap:6px;flex-wrap:wrap;}
+.tag{
+  font-size:10px;font-weight:700;letter-spacing:.07em;
+  text-transform:uppercase;padding:3px 10px;
+  border-radius:9999px;border:1px solid;
+}
+.tag-a{color:var(--accent);background:var(--accent-light);border-color:#D9775728;}
+.tag-g{color:var(--text2);background:var(--tag-bg);border-color:var(--card-border2);}
+
+.copy-btn{
+  background:var(--dark);color:#F2EFE8;
+  border:none;border-radius:9999px;
+  padding:8px 20px;font-size:12px;font-weight:700;
+  font-family:'Figtree',sans-serif;letter-spacing:.05em;
+  cursor:pointer;transition:all .15s;flex-shrink:0;
+}
+.copy-btn:hover{background:#2E2820;}
+.copy-btn.ok{background:var(--accent);}
+
+/* pro teaser banner */
+.pro-banner{
+  background:var(--dark);border-radius:16px;
+  padding:28px 32px;margin:56px 0 0;
+  display:grid;grid-template-columns:1fr auto;
+  gap:20px;align-items:center;
+  position:relative;overflow:hidden;
+}
+.pro-banner::after{
+  content:'PRO';position:absolute;
+  right:140px;top:50%;transform:translateY(-50%);
+  font-size:96px;font-weight:800;color:#ffffff04;
+  letter-spacing:-.04em;pointer-events:none;line-height:1;
+}
+.pro-title{font-size:20px;font-weight:800;color:#F2EFE8;margin-bottom:6px;line-height:1.2;}
+.pro-sub{font-size:14px;color:#F2EFE870;line-height:1.6;max-width:420px;}
+.pro-kw{
+  display:inline-block;background:var(--accent);
+  color:#fff;border-radius:9999px;padding:2px 12px;
+  font-weight:800;letter-spacing:.06em;font-size:13px;
+}
+.pro-btn{
+  background:var(--accent);color:#fff;
+  border:none;border-radius:12px;
+  padding:14px 28px;font-size:14px;font-weight:800;
+  font-family:'Figtree',sans-serif;letter-spacing:.04em;
+  cursor:pointer;white-space:nowrap;flex-shrink:0;
+  transition:opacity .15s;
+}
+.pro-btn:hover{opacity:.88;}
+
+/* footer */
+footer{
+  border-top:1px solid var(--card-border2);
+  padding:28px 40px;text-align:center;
+  max-width:760px;margin:0 auto;
+  font-size:12px;color:var(--text3);line-height:1.8;
+}
+footer a{color:var(--accent);text-decoration:none;}
+
+/* responsive */
+@media(max-width:640px){
+  .hero{padding:44px 20px 40px;}
+  .body{padding:36px 20px 80px;}
+  .nav-inner{padding:10px 20px;}
+  .hero-stats{flex-direction:column;gap:16px;}
+  .stat{padding:0;border-right:none;}
+  .pro-banner{grid-template-columns:1fr;padding:24px 22px;}
+  .pro-banner::after{display:none;}
+  footer{padding:24px 20px;}
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="dot-grid"></div>
+  <div class="hero-inner">
+    <div class="eyebrow">
+      <span class="eyebrow-pill">✳ CLAUDE library</span>
+      <span class="eyebrow-level">mid-level · free</span>
+    </div>
+    <h1>20 prompts that<br>do <em>real work</em></h1>
+    <p class="hero-sub">You got the 5-prompt starter. This is the full library. Copy any prompt, swap the orange parts for your details, and paste into Claude. No paid plan required.</p>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-n"><span>20</span></div><div class="stat-l">prompts total</div></div>
+      <div class="stat"><div class="stat-n">5</div><div class="stat-l">categories</div></div>
+      <div class="stat"><div class="stat-n">Free</div><div class="stat-l">forever</div></div>
+      <div class="stat"><div class="stat-n">@learn_withclaude</div><div class="stat-l">follow for more</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- NAV -->
+<nav class="nav-wrap">
+  <div class="nav-inner">
+    <a href="#writing" class="nav-pill active">✍ Writing</a>
+    <a href="#research" class="nav-pill">🔍 Research</a>
+    <a href="#content" class="nav-pill">📱 Content</a>
+    <a href="#work" class="nav-pill">💼 Work</a>
+    <a href="#creative" class="nav-pill">✦ Creative</a>
+  </div>
+</nav>
+
+<!-- BODY -->
+<main class="body">
+
+  <!-- WRITING -->
+  <section class="category" id="writing">
+    <div class="cat-header">
+      <div class="cat-icon">✍</div>
+      <div>
+        <div class="cat-title">Writing</div>
+        <div class="cat-sub">Make Claude write in your voice, not its own</div>
+      </div>
+      <span class="cat-count">4 prompts</span>
+    </div>
+
+    <div class="prompt-card">
+      <div class="card-top" onclick="toggle(this)">
+        <div class="num-badge">01</div>
+        <div class="card-info">
+          <div class="card-title">Write anything in your exact voice</div>
+          <div class="card-desc">Feed Claude 3 examples of your writing and it mirrors your style perfectly from then on.</div>
+        </div>
+        <div class="card-arrow">▾</div>
+      </div>
+      <div class="card-body">
+        <div class="prompt-text">I want you to write like me. Here are 3 examples of my writing style:
+
+Example 1: <span class="v">[paste something you wrote]</span>
+Example 2: <span class="v">[paste something else you wrote]</span>
+Example 3: <span class="v">[paste a third piece]</span>
+
+Based on these examples, identify my voice: sentence length, tone, how formal I am, what phrases I use.
+
+Then write <span class="v">[what you need written]</span> in that exact voice.
+
+Do not make it sound like AI. Make it sound like me.</div>
+        <div class="card-actions">
+          <div class="tags"><span class="tag tag-a">voice match</span><span class="tag tag-g">writing</span></div>
+          <button class="copy-btn" onclick="cp(event,this,`I want you to write like me. Here are 3 examples of my writing style:\n\nExample 1: [paste something you wrote]\nExample 2: [paste something else you wrote]\nExample 3: [paste a third piece]\n\nBased on these examples, identify my voice: sentence length, tone, how formal I am, what phrases I use.\n\nThen write [what you need written] in that exact voice.\n\nDo not make it sound like AI. Make it sound like me.`)">Copy prompt</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="card-top" onclick="toggle(this)">
+        <div class="num-badge">02</div>
+        <div class="card-info">
+          <div class="card-title">Turn bullet points into polished prose</div>
+          <div class="card-desc">Paste rough notes and get a structured, readable document back in seconds.</div>
+        </div>
+        <div class="card-arrow">▾</div>
+      </div>
+      <div class="card-body">
+        <div class="prompt-text">Turn these rough notes into a polished, well-structured <span class="v">[document type — e.g. "report" / "email" / "article" / "proposal"]</span>.
+
+My notes:
+<span class="v">[paste your bullet points or rough draft]</span>
+
+Requirements:
+- Tone: <span class="v">[professional / conversational / authoritative]</span>
+- Length: <span class="v">[short and punchy / comprehensive / one page]</span>
+- Audience: <span class="v">[who will read this]</span>
+
+Keep all my ideas. Just make them flow properly.</div>
+        <div class="card-actions">
+          <div class="tags"><span class="tag tag-g">writing</span><span class="tag tag-g">editing</span></div>
+          <button class="copy-btn" onclick="cp(event,this,`Turn these rough notes into a polished, well-structured [document type — e.g. \"report\" / \"email\" / \"article\" / \"proposal\"].\n\nMy notes:\n[paste your bullet points or rough draft]\n\nRequirements:\n- Tone: [professional / conversational / authoritative]\n- Length: [short and punchy / comprehensive / one page]\n- Audience: [who will read this]\n\nKeep all my ideas. Just make them flow properly.`)">Copy prompt</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="card-top" onclick="toggle(this)">
+        <div class="num-badge">03</div>
+        <div class="card-info">
+          <div class="card-title">Critique any piece of writing ruthlessly</div>
+          <div class="card-desc">Get the honest feedback most people are too polite to give you.</div>
+        </div>
+        <div class="card-arrow">▾</div>
+      </div>
+      <div class="card-body">
+        <div class="prompt-text">You are a sharp, honest editor. Do not be polite — be useful.
+
+Read this piece and give me:
+1. The 3 biggest structural problems
+2. The sentences that lose the reader
+3. Where I'm being vague when I should be specific
+4. One thing that's actually working well
+5. A rewritten version of the weakest paragraph
+
+Here's my writing:
+<span class="v">[paste your writing]</span></div>
+        <div class="card-actions">
+          <div class="tags"><span class="tag tag-a">editing</span><span class="tag tag-g">feedback</span></div>
+          <button class="copy-btn" onclick="cp(event,this,`You are a sharp, honest editor. Do not be polite — be useful.\n\nRead this piece and give me:\n1. The 3 biggest structural problems\n2. The sentences that lose the reader\n3. Where I'm being vague when I should be specific\n4. One thing that's actually working well\n5. A rewritten version of the weakest paragraph\n\nHere's my writing:\n[paste your writing]`)">Copy prompt</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="card-top" onclick="toggle(this)">
+        <div class="num-badge">04</div>
+        <div class="card-info">
+          <div class="card-title">Rewrite anything shorter and sharper</div>
+          <div class="card-desc">Cut the fat without losing the point. Works on emails, reports, bios, anything.</div>
+        </div>
+        <div class="card-arrow">▾</div>
+      </div>
+      <div class="card-body">
+        <div class="prompt-text">Rewrite the following to be <span class="v">[50% shorter / under 100 words / under 3 sentences]</span>.
+
+Rules:
+- Keep every important idea
+- Cut filler, repetition, and hedging words
+- Don't change the meaning or tone
+- If you have to choose what to cut, tell me what you removed and why
+
+Here's the text:
+<span class="v">[paste your text]</span></div>
+        <div class="card-actions">
+          <div class="tags"><span class="tag tag-g">editing</span><span class="tag tag-g">clarity</span></div>
+          <button class="copy-btn" onclick="cp(event,this,`Rewrite the following to be [50% shorter / under 100 words / under 3 sentences].\n\nRules:\n- Keep every important idea\n- Cut filler, repetition, and hedging words\n- Don't change the meaning or tone\n- If you have to choose what to cut, tell me what you removed and why\n\nHere's the text:\n[paste your text]`)">Copy prompt</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESEARCH -->
+  <section class="category" id="research">
+    <div class="cat-header">
+      <div class="cat-icon">🔍</div>
+      <div>
+        <div class="cat-title">Research</div>
+        <div class="cat-sub">Turn Claude into your personal research assistant</div>
+      </div>
+      <span class="cat-count">4 prompts</span>
+    </div>
+
+    <div class="prompt-card">
+      <div class="card-top" onclick="toggle(this)">
+        <div class="num-badge">05</div>
+        <div class="card-info">
+          <div class="card-title">Deep-dive any topic in 5 minutes</div>
+          <div class="card-desc">Get a proper briefing on anything — not a Wikipedia summary, a structured breakdown you can act on.</div>
+        </div>
+        <div class="card-arrow">▾</div>
+      </div>
+      <div class="card-body">
+        <div class="prompt-text">Give me a comprehensive briefing on <span class="v">[topic]</span>.
+
+Structure it like this:
+1. What it is (plain English, 2 sentences)
+2. Why it matters right now
+3. The 3 things most people get wrong about it
+4. Key terms I need to know
+5. The most important thing someone should do with this knowledge
+
+I'm a <span class="v">[beginner / intermediate / professional]</span> in this area.
+Keep the language <span class="v">[simple / technical / balanced]</span>.</div>
+        <div class="card-actions">
+          <div class="tags"><span class="tag tag-a">research</span><span class="tag tag-g">learning</span></div>
+          <button class="copy-btn" onclick="cp(event,this,`Give me a comprehensive briefing on [topic].\n\nStructure it like this:\n1. What it is (plain English, 2 sentences)\n2. Why it matters right now\n3. The 3 things most people get wrong about it\n4. Key terms I need to know\n5. The most important thing someone should do with this knowledge\n\nI'm a [beginner / intermediate / professional] in this area.\nKeep the language [simple / technical / balanced].`)">Copy prompt</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="card-top" onclick="toggle(this)">
+        <div class="num-badge">06</div>
+        <div class="card-info">
+          <div class="card-title">Find holes in your argument or plan</div>
+          <div class="card-desc">Ask Claude to steel-man and then attack your idea. Finds weaknesses before your boss does.</div>
+        </div>
+        <div class="card-arrow">▾</div>
+      </div>
+      <div class="card-body">
+        <div class="prompt-text">Here is my argument / plan / idea:
+<span class="v">[paste your idea]</span>
+
+Do this in two parts:
+
+Part 1 — Steel-man it: make the strongest possible case FOR this idea, better than I did.
+
+Part 2 — Attack it: act as a sharp critic and find every weakness, assumption, gap, and risk. Be brutal. Don't protect my feelings.
+
+Then tell me: given both sides, what's the one thing I should fix first?</div>
+        <div class="card-actions">
+          <div class="tags"><span class="tag tag-a">critical thinking</span><span class="tag tag-g">planning</span></div>
+          <button class="copy-btn" onclick="cp(event,this,`Here is my argument / plan / idea:\n[paste your idea]\n\nDo this in two parts:\n\nPart 1 — Steel-man it: make the strongest possible case FOR this idea, better than I did.\n\nPart 2 — Attack it: act as a sharp critic and find every weakness, assumption, gap, and risk. Be brutal. Don't protect my feelings.\n\nThen tell me: given both sides, what's the one thing I should fix first?`)">Copy prompt</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="card-top" onclick="toggle(this)">
+        <div class="num-badge">07</div>
+        <div class="card-info">
+          <div class="card-title">Compare two options objectively</div>
+          <div class="card-desc">Stop going back and forth. Get a clear, unbiased breakdown to make the decision faster.</div>
+        </div>
+        <div class="card-arrow">▾</div>
+      </div>
+      <div class="card-body">
+        <div class="prompt-text">I'm deciding between <span class="v">[option A]</span> and <span class="v">[option B]</span>.
+
+My situation: <span class="v">[brief context about what you're trying to achieve]</span>
+My constraints: <span class="v">[budget / time / skills / other limits]</span>
+What matters most to me: <span class="v">[your top 2-3 priorities]</span>
+
+Give me:
+1. A side-by-side comparison on the criteria that actually matter for my situation
+2. The hidden trade-offs most people miss
+3. A clear recommendation with your reasoning
+4. The one question I should ask myself before deciding</div>
+        <div class="card-actions">
+          <div class="tags"><span class="tag tag-g">decision making</span><span class="tag tag-g">research</span></div>
+          <button class="copy-btn" onclick="cp(event,this,`I'm deciding between [option A] and [option B].\n\nMy situation: [brief context about what you're trying to achieve]\nMy constraints: [budget / time / skills / other limits]\nWhat matters most to me: [your top 2-3 priorities]\n\nGive me:\n1. A side-by-side comparison on the criteria that actually matter for my situation\n2. The hidden trade-offs most people miss\n3. A clear recommendation with your reasoning\n4. The one question I should ask myself before deciding`)">Copy prompt</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="card-top" onclick="toggle(this)">
+        <div class="num-badge">08</div>
+        <div class="card-info">
+          <div class="card-title">Turn any document into a study guide</div>
+          <div class="card-desc">Paste a textbook chapter, research paper, or report — get back a guide you can actually study from.</div>
+        </div>
+        <div class="card-arrow">▾</div>
+      </div>
+      <div class="card-body">
+        <div class="prompt-text">Turn the following document into a proper study guide.
+
+Include:
+1. A one-paragraph summary (the "so what")
+2. Key concepts defined in plain English
+3. 5 exam-style questions with answers
+4. A "remember this" cheat sheet — the 5 most important points as bullets
+5. One thing this document assumes I already know (that I might not)
+
+Here's the document:
+<span class="v">[paste your document, article, or chapter]</span></div>
+        <div class="card-actions">
+          <div class="tags"><span class="tag tag-a">study</span><span class="tag tag-g">research</span></div>
+          <button class="copy-btn" onclick="cp(event,this,`Turn the following document into a proper study guide.\n\nInclude:\n1. A one-paragraph summary (the \"so what\")\n2. Key concepts defined in plain English\n3. 5 exam-style questions with answers\n4. A \"remember this\" cheat sheet — the 5 most important points as bullets\n5. One thing this document assumes I already know (that I might not)\n\nHere's the document:\n[paste your document, article, or chapter]`)">Copy prompt</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTENT -->
+  <section class="category" id="content">
+    <div class="cat-header">
+      <div class="cat-icon">📱</div>
+      <div>
+        <div class="cat-title">Content creation</div>
+        <div class="cat-sub">Build a month of content in an afternoon</div>
+      </div>
+      <span class="cat-count">4 prompts</span>
+    </div>
+
+    <div class="prompt-card">
+      <div class="card-top" onclick="toggle(this)">
+        <div class="num-badge">09</div>
+        <div class="card-info">
+          <div class="card-title">Generate 30 content ideas for any niche</div>
+          <div class="card-desc">Never stare at a blank content calendar again. 30 ideas in under a minute.</div>
+        </div>
+        <div class="card-arrow">▾</div>
+      </div>
+      <div class="card-body">
+        <div class="prompt-text">Generate 30 content ideas for <span class="v">[your topic / niche]</span>.
+
+My audience: <span class="v">[describe who follows you]</span>
+Platform: <span class="v">[Instagram / LinkedIn / YouTube / TikTok]</span>
+My content style: <span class="v">[educational / entertaining / behind-the-scenes / opinion]</span>
+
+For each idea include:
+- The hook (first line that stops the scroll)
+- The format (carousel / reel / single image / text post)
+- Why this would perform well
+
+Group them by: beginner appeal · viral potential · saves/shares.</div>
+        <div class="card-actions">
+          <div class="tags"><span class="tag tag-a">content</span><span class="tag tag-g">social media</span></div>
+          <button class="copy-btn" onclick="cp(event,this,`Generate 30 content ideas for [your topic / niche].\n\nMy audience: [describe who follows you]\nPlatform: [Instagram / LinkedIn / YouTube / TikTok]\nMy content style: [educational / entertaining / behind-the-scenes / opinion]\n\nFor each idea include:\n- The hook (first line that stops the scroll)\n- The format (carousel / reel / single image / text post)\n- Why this would perform well\n\nGroup them by: beginner appeal · viral potential · saves/shares.`)">Copy prompt</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="card-top" onclick="toggle(this)">
+        <div class="num-badge">10</div>
+        <div class="card-info">
+          <div class="card-title">Repurpose one piece of content into 5 formats</div>
+          <div class="card-desc">Write it once, post it everywhere. Paste any piece of content and get 5 platform-native versions.</div>
+        </div>
+        <div class="card-arrow">▾</div>
+      </div>
+      <div class="card-body">
+        <div class="prompt-text">Repurpose this content into 5 different formats:
+
+Original content:
+<span class="v">[paste your blog post / video script / tweet / newsletter]</span>
+
+Create:
+1. An Instagram carousel outline (hook slide + 3 value slides + CTA slide)
+2. A LinkedIn post (professional tone, 150 words max)
+3. A Twitter/X thread (5 tweets, each punchy)
+4. A YouTube Short script (60 seconds, spoken word)
+5. An email newsletter intro (first 3 sentences that make people keep reading)
+
+Keep the core idea identical across all 5. Only the format changes.</div>
+        <div class="card-actions">
+          <div class="tags"><span class="tag tag-a">repurpose</span><span class="tag tag-g">content</span></div>
+          <button class="copy-btn" onclick="cp(event,this,`Repurpose this content into 5 different formats:\n\nOriginal content:\n[paste your blog post / video script / tweet / newsletter]\n\nCreate:\n1. An Instagram carousel outline (hook slide + 3 value slides + CTA slide)\n2. A LinkedIn post (professional tone, 150 words max)\n3. A Twitter/X thread (5 tweets, each punchy)\n4. A YouTube Short script (60 seconds, spoken word)\n5. An email newsletter intro (first 3 sentences that make people keep reading)\n\nKeep the core idea identical across all 5. Only the format changes.`)">Copy prompt</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="card-top" onclick="toggle(this)">
+        <div class="num-badge">11</div>
+        <div class="card-info">
+          <div class="card-title">Write 10 hooks that stop the scroll</div>
+          <div class="card-desc">The first line is everything. Get 10 variations for any topic, ranked by likely performance.</div>
+        </div>
+        <div class="card-arrow">▾</div>
+      </div>
+      <div class="card-body">
+        <div class="prompt-text">Write 10 different hooks for a post about <span class="v">[your topic]</span>.
+
+Each hook should use a different psychological trigger:
+- Curiosity gap
+- Bold counter-intuitive claim
+- Specific number or stat
+- Common mistake called out
+- Personal story opener
+- Question that stings a little
+- "I wish someone told me this"
+- Before / after contrast
+- Surprising fact
+- Direct challenge to the reader
+
+After the list, tell me which 3 you'd post first and why.</div>
+        <div class="card-actions">
+          <div class="tags"><span class="tag tag-a">hooks</span><span class="tag tag-g">copywriting</span></div>
+          <button class="copy-btn" onclick="cp(event,this,`Write 10 different hooks for a post about [your topic].\n\nEach hook should use a different psychological trigger:\n- Curiosity gap\n- Bold counter-intuitive claim\n- Specific number or stat\n- Common mistake called out\n- Personal story opener\n- Question that stings a little\n- \"I wish someone told me this\"\n- Before / after contrast\n- Surprising fact\n- Direct challenge to the reader\n\nAfter the list, tell me which 3 you'd post first and why.`)">Copy prompt</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="card-top" onclick="toggle(this)">
+        <div class="num-badge">12</div>
+        <div class="card-info">
+          <div class="card-title">Build a complete carousel from a single idea</div>
+          <div class="card-desc">Give Claude one idea and get back a full 6-slide Instagram carousel, word for word.</div>
+        </div>
+        <div class="card-arrow">▾</div>
+      </div>
+      <div class="card-body">
+        <div class="prompt-text">Write a full Instagram carousel on this topic: <span class="v">[your topic]</span>
+
+My audience: <span class="v">[who follows you]</span>
+Goal of this post: <span class="v">[saves / follows / DMs / link clicks]</span>
+
+Format: 6 slides
+
+Slide 1 — Hook: one punchy line that makes someone stop scrolling
+Slide 2 — The problem: what pain point does this solve
+Slide 3 — Value point 1 (with a concrete example)
+Slide 4 — Value point 2 (with a concrete example)
+Slide 5 — Value point 3 (with a concrete example)
+Slide 6 — CTA: one clear action for the reader to take
+
+Each slide: max 30 words. Write what goes ON the slide, not in the caption.</div>
+        <div class="card-actions">
+          <div class="tags"><span class="tag tag-a">carousel</span><span class="tag tag-g">instagram</span></div>
+          <button class="copy-btn" onclick="cp(event,this,`Write a full Instagram carousel on this topic: [your topic]\n\nMy audience: [who follows you]\nGoal of this post: [saves / follows / DMs / link clicks]\n\nFormat: 6 slides\n\nSlide 1 — Hook: one punchy line that makes someone stop scrolling\nSlide 2 — The problem: what pain point does this solve\nSlide 3 — Value point 1 (with a concrete example)\nSlide 4 — Value point 2 (with a concrete example)\nSlide 5 — Value point 3 (with a concrete example)\nSlide 6 — CTA: one clear action for the reader to take\n\nEach slide: max 30 words. Write what goes ON the slide, not in the caption.`)">Copy prompt</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section class="category" id="work">
+    <div class="cat-header">
+      <div class="cat-icon">💼</div>
+      <div>
+        <div class="cat-title">Work & professional</div>
+        <div class="cat-sub">The prompts that save hours every week</div>
+      </div>
+      <span class="cat-count">4 prompts</span>
+    </div>
+
+    <div class="prompt-card">
+      <div class="card-top" onclick="toggle(this)">
+        <div class="num-badge">13</div>
+        <div class="card-info">
+          <div class="card-title">Write a client proposal in 5 minutes</div>
+          <div class="card-desc">Paste your rough scope and get a professional proposal that closes deals.</div>
+        </div>
+        <div class="card-arrow">▾</div>
+      </div>
+      <div class="card-body">
+        <div class="prompt-text">Write a professional client proposal based on these details:
+
+Client: <span class="v">[client name / type of business]</span>
+Project: <span class="v">[what you're doing for them]</span>
+Deliverables: <span class="v">[list what you'll deliver]</span>
+Timeline: <span class="v">[how long it takes]</span>
+Price: <span class="v">[your fee]</span>
+My background: <span class="v">[why I'm the right person]</span>
+
+Structure it as:
+- The problem I'm solving for them (1 paragraph)
+- My approach (bullet points)
+- Deliverables and timeline (table)
+- Investment (clear pricing)
+- Next step (one clear CTA)
+
+Tone: confident, professional, not salesy.</div>
+        <div class="card-actions">
+          <div class="tags"><span class="tag tag-a">proposals</span><span class="tag tag-g">freelance</span></div>
+          <button class="copy-btn" onclick="cp(event,this,`Write a professional client proposal based on these details:\n\nClient: [client name / type of business]\nProject: [what you're doing for them]\nDeliverables: [list what you'll deliver]\nTimeline: [how long it takes]\nPrice: [your fee]\nMy background: [why I'm the right person]\n\nStructure it as:\n- The problem I'm solving for them (1 paragraph)\n- My approach (bullet points)\n- Deliverables and timeline (table)\n- Investment (clear pricing)\n- Next step (one clear CTA)\n\nTone: confident, professional, not salesy.`)">Copy prompt</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="card-top" onclick="toggle(this)">
+        <div class="num-badge">14</div>
+        <div class="card-info">
+          <div class="card-title">Plan your full week in under 5 minutes</div>
+          <div class="card-desc">Paste your task list and available hours — get a realistic, prioritised weekly plan back.</div>
+        </div>
+        <div class="card-arrow">▾</div>
+      </div>
+      <div class="card-body">
+        <div class="prompt-text">Help me plan my work week.
+
+My tasks and projects:
+<span class="v">[paste everything on your list, messy is fine]</span>
+
+My available hours:
+Monday: <span class="v">[X hours]</span>
+Tuesday: <span class="v">[X hours]</span>
+Wednesday: <span class="v">[X hours]</span>
+Thursday: <span class="v">[X hours]</span>
+Friday: <span class="v">[X hours]</span>
+
+My top priority this week: <span class="v">[the one thing that must get done]</span>
+Energy pattern: <span class="v">[I'm sharp in the mornings / afternoons / evenings]</span>
+
+Give me a day-by-day plan. Be realistic — don't over-schedule. Flag anything I should push to next week.</div>
+        <div class="card-actions">
+          <div class="tags"><span class="tag tag-g">planning</span><span class="tag tag-g">productivity</span></div>
+          <button class="copy-btn" onclick="cp(event,this,`Help me plan my work week.\n\nMy tasks and projects:\n[paste everything on your list, messy is fine]\n\nMy available hours:\nMonday: [X hours]\nTuesday: [X hours]\nWednesday: [X hours]\nThursday: [X hours]\nFriday: [X hours]\n\nMy top priority this week: [the one thing that must get done]\nEnergy pattern: [I'm sharp in the mornings / afternoons / evenings]\n\nGive me a day-by-day plan. Be realistic — don't over-schedule. Flag anything I should push to next week.`)">Copy prompt</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="card-top" onclick="toggle(this)">
+        <div class="num-badge">15</div>
+        <div class="card-info">
+          <div class="card-title">Respond to any difficult message professionally</div>
+          <div class="card-desc">Paste the tricky email, message, or review you've been avoiding. Get a calm, professional response back.</div>
+        </div>
+        <div class="card-arrow">▾</div>
+      </div>
+      <div class="card-body">
+        <div class="prompt-text">Help me respond to this difficult message professionally.
+
+Here's what they sent:
+<span class="v">[paste the email / message / review]</span>
+
+Context: <span class="v">[brief background on the situation]</span>
+My goal in responding: <span class="v">[de-escalate / set a boundary / decline politely / push back / apologise professionally]</span>
+
+Write a response that:
+- Is calm and professional, not defensive
+- Addresses their concern directly
+- Moves the situation forward
+- Sounds like a real human, not a corporate template
+
+Keep it under 150 words.</div>
+        <div class="card-actions">
+          <div class="tags"><span class="tag tag-a">communication</span><span class="tag tag-g">professional</span></div>
+          <button class="copy-btn" onclick="cp(event,this,`Help me respond to this difficult message professionally.\n\nHere's what they sent:\n[paste the email / message / review]\n\nContext: [brief background on the situation]\nMy goal in responding: [de-escalate / set a boundary / decline politely / push back / apologise professionally]\n\nWrite a response that:\n- Is calm and professional, not defensive\n- Addresses their concern directly\n- Moves the situation forward\n- Sounds like a real human, not a corporate template\n\nKeep it under 150 words.`)">Copy prompt</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="card-top" onclick="toggle(this)">
+        <div class="num-badge">16</div>
+        <div class="card-info">
+          <div class="card-title">Debug any error message — paste and fix</div>
+          <div class="card-desc">Not just for developers. Works with Excel errors, app crashes, anything with an error message.</div>
+        </div>
+        <div class="card-arrow">▾</div>
+      </div>
+      <div class="card-body">
+        <div class="prompt-text">I'm getting this error and I don't know how to fix it.
+
+The error:
+<span class="v">[paste the full error message]</span>
+
+What I was trying to do:
+<span class="v">[describe what you were doing when it happened]</span>
+
+Tool / app / software:
+<span class="v">[Excel / Python / Google Sheets / specific app]</span>
+
+My skill level: <span class="v">[complete beginner / some experience / comfortable but stuck]</span>
+
+Give me:
+1. What this error actually means in plain English
+2. The most likely cause in my situation
+3. Step-by-step fix I can do right now
+4. How to avoid it next time</div>
+        <div class="card-actions">
+          <div class="tags"><span class="tag tag-g">troubleshooting</span><span class="tag tag-g">technical</span></div>
+          <button class="copy-btn" onclick="cp(event,this,`I'm getting this error and I don't know how to fix it.\n\nThe error:\n[paste the full error message]\n\nWhat I was trying to do:\n[describe what you were doing when it happened]\n\nTool / app / software:\n[Excel / Python / Google Sheets / specific app]\n\nMy skill level: [complete beginner / some experience / comfortable but stuck]\n\nGive me:\n1. What this error actually means in plain English\n2. The most likely cause in my situation\n3. Step-by-step fix I can do right now\n4. How to avoid it next time`)">Copy prompt</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CREATIVE -->
+  <section class="category" id="creative">
+    <div class="cat-header">
+      <div class="cat-icon">✦</div>
+      <div>
+        <div class="cat-title">Creative & personal</div>
+        <div class="cat-sub">The prompts people don't expect Claude to nail</div>
+      </div>
+      <span class="cat-count">4 prompts</span>
+    </div>
+
+    <div class="prompt-card">
+      <div class="card-top" onclick="toggle(this)">
+        <div class="num-badge">17</div>
+        <div class="card-info">
+          <div class="card-title">Build a meal plan from what's in your fridge</div>
+          <div class="card-desc">List what you have, get 5 real meals back. No food waste, no "just order something".</div>
+        </div>
+        <div class="card-arrow">▾</div>
+      </div>
+      <div class="card-body">
+        <div class="prompt-text">Build me a 5-meal plan from what I have at home.
+
+What's in my fridge / cupboards:
+<span class="v">[list everything, including condiments]</span>
+
+My constraints:
+- Cooking skill: <span class="v">[beginner / intermediate / I can cook properly]</span>
+- Time per meal: <span class="v">[under 20 mins / up to 45 mins / flexible]</span>
+- Dietary needs: <span class="v">[none / vegetarian / no gluten / etc.]</span>
+
+For each meal give me:
+- Name and approximate time
+- Step-by-step instructions (simple language)
+- One thing to watch out for
+
+Use what I have. Don't add ingredients I haven't listed unless absolutely essential.</div>
+        <div class="card-actions">
+          <div class="tags"><span class="tag tag-g">food</span><span class="tag tag-g">personal</span></div>
+          <button class="copy-btn" onclick="cp(event,this,`Build me a 5-meal plan from what I have at home.\n\nWhat's in my fridge / cupboards:\n[list everything, including condiments]\n\nMy constraints:\n- Cooking skill: [beginner / intermediate / I can cook properly]\n- Time per meal: [under 20 mins / up to 45 mins / flexible]\n- Dietary needs: [none / vegetarian / no gluten / etc.]\n\nFor each meal give me:\n- Name and approximate time\n- Step-by-step instructions (simple language)\n- One thing to watch out for\n\nUse what I have. Don't add ingredients I haven't listed unless absolutely essential.`)">Copy prompt</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="card-top" onclick="toggle(this)">
+        <div class="num-badge">18</div>
+        <div class="card-info">
+          <div class="card-title">Get personalised book, film, or podcast recs</div>
+          <div class="card-desc">Give Claude your taste and get recommendations that actually match — not just popular picks.</div>
+        </div>
+        <div class="card-arrow">▾</div>
+      </div>
+      <div class="card-body">
+        <div class="prompt-text">Recommend 5 <span class="v">[books / films / podcasts / shows]</span> that I'll actually love.
+
+Things I've loved recently:
+<span class="v">[list 3-5 you genuinely enjoyed]</span>
+
+Things that disappointed me:
+<span class="v">[list 2-3 that were overhyped for you]</span>
+
+What I'm in the mood for right now:
+<span class="v">[e.g. "something that makes me think" / "pure entertainment" / "short episodes" / "a slow burn"]</span>
+
+For each recommendation:
+- Why it specifically matches MY taste (not a generic description)
+- One warning if it's not for everyone
+- Where to find it</div>
+        <div class="card-actions">
+          <div class="tags"><span class="tag tag-g">recommendations</span><span class="tag tag-g">personal</span></div>
+          <button class="copy-btn" onclick="cp(event,this,`Recommend 5 [books / films / podcasts / shows] that I'll actually love.\n\nThings I've loved recently:\n[list 3-5 you genuinely enjoyed]\n\nThings that disappointed me:\n[list 2-3 that were overhyped for you]\n\nWhat I'm in the mood for right now:\n[e.g. \"something that makes me think\" / \"pure entertainment\" / \"short episodes\" / \"a slow burn\"]\n\nFor each recommendation:\n- Why it specifically matches MY taste (not a generic description)\n- One warning if it's not for everyone\n- Where to find it`)">Copy prompt</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="card-top" onclick="toggle(this)">
+        <div class="num-badge">19</div>
+        <div class="card-info">
+          <div class="card-title">Write a bio that doesn't sound like a bio</div>
+          <div class="card-desc">For Instagram, LinkedIn, a portfolio, or anywhere you introduce yourself. Actually human, not corporate.</div>
+        </div>
+        <div class="card-arrow">▾</div>
+      </div>
+      <div class="card-body">
+        <div class="prompt-text">Write my bio for <span class="v">[platform — Instagram / LinkedIn / portfolio / speaker page]</span>.
+
+Raw info about me:
+<span class="v">[dump everything — job, what you do, what you care about, a quirky fact, what you help people with]</span>
+
+Tone I want: <span class="v">[professional / casual / witty / warm / bold]</span>
+Length: <span class="v">[one line / 3 sentences / full paragraph]</span>
+
+Rules:
+- Do NOT start with "I am a..."
+- No corporate buzzwords (passionate, driven, results-oriented)
+- Make it sound like a real person wrote it
+- End with something that makes someone want to follow or connect</div>
+        <div class="card-actions">
+          <div class="tags"><span class="tag tag-a">bio</span><span class="tag tag-g">personal brand</span></div>
+          <button class="copy-btn" onclick="cp(event,this,`Write my bio for [platform — Instagram / LinkedIn / portfolio / speaker page].\n\nRaw info about me:\n[dump everything — job, what you do, what you care about, a quirky fact, what you help people with]\n\nTone I want: [professional / casual / witty / warm / bold]\nLength: [one line / 3 sentences / full paragraph]\n\nRules:\n- Do NOT start with \"I am a...\"\n- No corporate buzzwords (passionate, driven, results-oriented)\n- Make it sound like a real person wrote it\n- End with something that makes someone want to follow or connect`)">Copy prompt</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="card-top" onclick="toggle(this)">
+        <div class="num-badge">20</div>
+        <div class="card-info">
+          <div class="card-title">The self-review — make Claude improve its own output</div>
+          <div class="card-desc">The most powerful meta-prompt in this library. Run this after any Claude response to level it up.</div>
+        </div>
+        <div class="card-arrow">▾</div>
+      </div>
+      <div class="card-body">
+        <div class="prompt-text">Look at the response you just gave me.
+
+Now do this:
+1. Rate it honestly out of 10 — where did it fall short?
+2. What did you assume that you shouldn't have?
+3. What did I probably actually want that you didn't fully deliver?
+4. Rewrite your response from scratch with those improvements.
+
+Be honest. A 6/10 that you improve is better than a 10/10 you pretend to give yourself.</div>
+        <div class="card-actions">
+          <div class="tags"><span class="tag tag-a">meta prompt</span><span class="tag tag-g">advanced</span></div>
+          <button class="copy-btn" onclick="cp(event,this,`Look at the response you just gave me.\n\nNow do this:\n1. Rate it honestly out of 10 — where did it fall short?\n2. What did you assume that you shouldn't have?\n3. What did I probably actually want that you didn't fully deliver?\n4. Rewrite your response from scratch with those improvements.\n\nBe honest. A 6/10 that you improve is better than a 10/10 you pretend to give yourself.`)">Copy prompt</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRO TEASER -->
+  <div class="pro-banner">
+    <div>
+      <div class="pro-title">Ready for the next level?</div>
+      <div class="pro-sub">Comment <span class="pro-kw">PRO</span> on any of my posts and I'll send you details on the Claude Mastery system — advanced workflows, the Creator OS template, and everything after this free library.</div>
+    </div>
+    <button class="pro-btn" onclick="window.open('https://instagram.com/learn_withclaude','_blank')">Follow on IG →</button>
+  </div>
+
+</main>
+
+<footer>
+  Made by <a href="https://instagram.com/learn_withclaude" target="_blank">@learn_withclaude</a> · Free forever · claude.ai · Not affiliated with Anthropic<br>
+  Got a prompt request? DM on Instagram.
+</footer>
+
+<script>
+function toggle(header) {
+  const card = header.closest('.prompt-card');
+  const body = card.querySelector('.card-body');
+  const arrow = header.querySelector('.card-arrow');
+  const isOpen = body.classList.contains('open');
+  document.querySelectorAll('.card-body.open').forEach(b => b.classList.remove('open'));
+  document.querySelectorAll('.card-arrow.open').forEach(a => a.classList.remove('open'));
+  if (!isOpen) { body.classList.add('open'); arrow.classList.add('open'); }
+}
+
+function cp(e, btn, text) {
+  e.stopPropagation();
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = 'Copied!';
+    btn.classList.add('ok');
+    setTimeout(() => { btn.textContent = 'Copy prompt'; btn.classList.remove('ok'); }, 2000);
+  });
+}
+
+const pills = document.querySelectorAll('.nav-pill');
+pills.forEach(p => {
+  p.addEventListener('click', () => {
+    pills.forEach(x => x.classList.remove('active'));
+    p.classList.add('active');
+  });
+});
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(en => {
+    if (en.isIntersecting) {
+      const id = en.target.id;
+      pills.forEach(p => {
+        p.classList.toggle('active', p.getAttribute('href') === '#' + id);
+      });
+    }
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('.category').forEach(s => observer.observe(s));
+</script>
+</body>
+</html>
